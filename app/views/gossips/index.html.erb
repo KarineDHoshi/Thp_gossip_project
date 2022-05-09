@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title> Gossip News </title>
+  </head>
+
+<body>
+    <h2> Bienvenue ! Voici les potins de THP :</h2>   
+
+  <div class="row">
+    <% puts @gossips %>
+    <% @gossips.each do |gossip| %>
+      <div class="col-sm-4" style="padding: 30px">
+        <div class="card">
+          <div class="card-header">
+            <h4><%= gossip.title %></h4>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">A été écrit par <%= gossip.user.first_name %></h5>
+            <%= link_to "En savoir plus...", gossip_path(gossip.id), class:"btn btn-outline-primary" %>
+          </div>
+        </div>
+      </div> 
+    <% end %>          
+  </div>
+ <a href = '/'>Retour à l'acceuil</a>    
+</body>
+</html> 

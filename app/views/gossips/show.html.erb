@@ -1,0 +1,13 @@
+<center>
+<div class="card card-gossip">
+  <div class="card-header">
+    <h2><%= @gossip.title %></h2>
+  </div>
+  <div class="card-body">
+  
+      <p><%= @gossip.content %></p>
+      <footer class="blockquote-footer">Cet article a été écrit par <b><%= @gossip.user.first_name %> : <%= link_to "plus d'infos sur l'auteur", user_path(:user => @gossip.user.id) %></b></footer>
+
+  </div>
+</div>
+</center>

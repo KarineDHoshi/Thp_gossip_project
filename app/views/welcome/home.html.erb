@@ -1,0 +1,17 @@
+
+<h1>Bienvenu sur The Gossip Project !!!</h1>
+<h2> Voici tous les gossips :</h2>
+
+<%@gossips.each_with_index do |gossip_to_view, index|%>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"> <%=gossip_to_view.title %> </h5>
+    <h6 class="card-subtitle mb-2 text-muted">De <%= gossip_to_view.user.first_name%></h6>
+    <p class="card-text"><em>"<%=gossip_to_view.content%>"</em></p>
+    <a href="#" class="card-link"><%= link_to "Voir", gossip_path(gossip_to_view.id) %></a>    
+  </div>
+</div>
+<p></p>
+
+<%end%>
