@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Gossip Project</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <<a class="navbar-brand" href="https://www.thehackingproject.org">THP</a>>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Home", gossips_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Contact", static_contact_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Team", static_team_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "New Gossip", new_gossip_path, class: "nav-link disable" %>
+          </li>                  
+        </ul>
+        <ul class="navbar-nav mr-left">
+        <%if current_user == nil %>
+          <li class="nav-item">
+            <%= link_to "S'inscrire", new_user_path, class: "nav-link disable" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Se connecter", new_session_path, class: "nav-link disable" %>
+          </li>
+          <%else%>
+          <li class="nav-item">
+            <%= link_to "Se déconnecter", session_path(session.id), method: :delete, class: "nav-link disable" %>
+          </li>
+          <%end%>
+        </ul>
+
+      </div>
+    </nav>
+
+    <main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3 h1_jumbo">Welcome to The Gossip Project !</h1>
+          
+        
+        </div>
+      </div>
+
+      <%= yield %>  
+
+      </div> 
+    </main>
+
+    <footer class="footer div_text_centered">
+      <p>&copy; Nicolas - Karine  2022</p>
+    </footer>
+
+  </body>
+</html>
